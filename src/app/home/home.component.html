@@ -1,0 +1,28 @@
+<div
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-white px-4"
+>
+  <div class="text-center max-w-md">
+    <h1 class="text-3xl font-bold mb-4">📸 Cloud Gallery</h1>
+    <p class="text-gray-600 mb-6">
+      Upload, organize, and share your image folders — all in the cloud.
+    </p>
+
+    <ng-container *ngIf="isLoggedIn; else guest">
+      <button
+        (click)="goToDashboard()"
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
+        Go to Dashboard
+      </button>
+    </ng-container>
+
+    <ng-template #guest>
+      <button
+        (click)="goToLogin()"
+        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      >
+        Get Started
+      </button>
+    </ng-template>
+  </div>
+</div>

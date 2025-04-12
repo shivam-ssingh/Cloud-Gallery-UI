@@ -1,0 +1,33 @@
+<header
+  class="bg-white shadow px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0"
+>
+  <a routerLink="/" class="text-xl font-bold text-blue-600">📸 Cloud Gallery</a>
+
+  <nav class="flex flex-wrap gap-4 text-sm text-center sm:text-right">
+    <a
+      *ngIf="isLoggedIn()"
+      routerLink="/dashboard"
+      class="text-gray-600 hover:text-blue-600"
+      >Dashboard</a
+    >
+    <a
+      *ngIf="!isLoggedIn()"
+      routerLink="/login"
+      class="text-gray-600 hover:text-blue-600"
+      >Login</a
+    >
+    <a
+      *ngIf="!isLoggedIn()"
+      routerLink="/register"
+      class="text-gray-600 hover:text-blue-600"
+      >Register</a
+    >
+    <button
+      *ngIf="isLoggedIn()"
+      (click)="logout()"
+      class="text-red-500 hover:text-red-700"
+    >
+      Logout
+    </button>
+  </nav>
+</header>

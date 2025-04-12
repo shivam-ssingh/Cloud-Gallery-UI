@@ -1,0 +1,43 @@
+<div class="min-h-screen bg-gray-100 px-4 py-6">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-semibold mb-4 text-center sm:text-left">
+      Upload Images to: <span class="font-mono text-blue-600">{{ slug }}</span>
+    </h2>
+
+    <input
+      type="file"
+      multiple
+      (change)="onFileSelected($event)"
+      class="mb-4"
+    />
+
+    <button
+      (click)="uploadImages()"
+      [disabled]="!files.length || uploading"
+      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+    >
+      {{ uploading ? "Uploading..." : "Upload Images" }}
+    </button>
+
+    <div *ngIf="uploadedImages.length" class="mt-6">
+      <h3 class="font-semibold mb-2">Uploaded Previews</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+        <img
+          *ngFor="let img of uploadedImages"
+          [src]="img"
+          class="w-full h-auto rounded border"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="uploadedImages.length" class="mt-6">
+  <h3 class="font-semibold mb-2">Uploaded Images</h3>
+  <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <img
+      *ngFor="let img of uploadedImages"
+      [src]="img"
+      class="w-full h-auto rounded border"
+    />
+  </div>
+</div>
