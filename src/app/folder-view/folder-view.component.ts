@@ -26,7 +26,7 @@ export class FolderViewComponent implements OnInit {
   fetchFolderMetadata() {
     this.http
       .get<{ name: string }>(
-        `http://localhost:3000/api/folders/${this.slug}/metadata`
+        `https://cloud-gallery-api.onrender.com/api/folders/${this.slug}/metadata`
       )
       .subscribe({
         next: (res) => {
@@ -43,7 +43,7 @@ export class FolderViewComponent implements OnInit {
     this.loading = true;
     this.http
       .get<{ images: { url: string }[] }>(
-        `http://localhost:3000/api/images/folder/${this.slug}`
+        `https://cloud-gallery-api.onrender.com/api/images/folder/${this.slug}`
       )
       .subscribe({
         next: (res) => {

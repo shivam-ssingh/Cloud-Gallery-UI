@@ -30,7 +30,7 @@ export class UploadComponent implements OnInit {
 
     this.http
       .get<{ images: { url: string }[] }>(
-        `http://localhost:3000/api/images/folder/${this.slug}`,
+        `https://cloud-gallery-api.onrender.com/api/images/folder/${this.slug}`,
         { headers }
       )
       .subscribe({
@@ -59,7 +59,7 @@ export class UploadComponent implements OnInit {
         // 1. Get presigned URL
         const res: any = await this.http
           .post(
-            'http://localhost:3000/api/images/upload-url',
+            'https://cloud-gallery-api.onrender.com/api/images/upload-url',
             {
               folder_slug: this.slug,
               filename: file.name,
@@ -80,7 +80,7 @@ export class UploadComponent implements OnInit {
         // 3. Save image metadata
         await this.http
           .post(
-            'http://localhost:3000/api/images/save',
+            'https://cloud-gallery-api.onrender.com/api/images/save',
             {
               folder_slug: this.slug,
               key: res.key,

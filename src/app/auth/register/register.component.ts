@@ -19,10 +19,13 @@ export class RegisterComponent {
 
   onRegister() {
     this.http
-      .post<{ token: string }>('http://localhost:3000/api/auth/register', {
-        username: this.username,
-        password: this.password,
-      })
+      .post<{ token: string }>(
+        'https://cloud-gallery-api.onrender.com/api/auth/register',
+        {
+          username: this.username,
+          password: this.password,
+        }
+      )
       .subscribe({
         next: (res) => {
           localStorage.setItem('token', res.token);

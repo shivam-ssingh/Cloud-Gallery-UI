@@ -26,7 +26,10 @@ export class DashboardComponent implements OnInit {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     this.http
-      .get<{ folders: any[] }>('http://localhost:3000/api/folders', { headers })
+      .get<{ folders: any[] }>(
+        'https://cloud-gallery-api.onrender.com/api/folders',
+        { headers }
+      )
       .subscribe({
         next: (res) => (this.folders = res.folders),
         error: (err) => console.error('Fetch folders error:', err),
@@ -39,7 +42,7 @@ export class DashboardComponent implements OnInit {
 
     this.http
       .post(
-        'http://localhost:3000/api/folders',
+        'https://cloud-gallery-api.onrender.com/api/folders',
         {
           name: this.newFolderName,
           is_public: this.isPublic,

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private api = 'http://localhost:3000/api/auth';
+  private api = 'https://cloud-gallery-api.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
