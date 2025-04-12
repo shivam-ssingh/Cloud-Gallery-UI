@@ -32,7 +32,11 @@
 
     <p class="text-center text-sm mt-4">
       Already have an account?
-      <a routerLink="/login" class="text-green-600 hover:underline">Login</a>
+      <a
+        routerLink="/login"
+        class="text-green-600 hover:underline cursor-pointer"
+        >Login</a
+      >
     </p>
 
     <div *ngIf="errorMessage" class="text-red-500 mt-4 text-center">
